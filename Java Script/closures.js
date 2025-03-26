@@ -1,13 +1,21 @@
-function outer(x) {
-    function inner(y) {
-        return x + y;
+function human(name) {
+    function sayHi(){
+        console.log(`Hi, I am ${name}`);
     }
 
-    return inner;
+    function sayHowYouFeel() {
+        console.log(`Feeling good, ${name}`);
+    }
+
+    return {
+        sayHi,
+        sayHowYouFeel
+    };
 }
 
-const outerReturn = outer(10);
+const vidura = human('Vidura'); //looking up to the value
 
-outerReturn(2);
+//stores the value 
 
-console.log(outerReturn);
+vidura.sayHi();          // vidura.sayHi = sayHi
+vidura.sayHowYouFeel();   // vidura.sayHowYouFeel = sayHowYouFeel
